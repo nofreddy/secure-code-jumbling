@@ -29,51 +29,61 @@
       </header>
       <section>
         <h1>
-<a name="informationssammlung-zur-techniken-programme-vor-analyse-und-%C3%84nderungen-zu-sch%C3%BCtzen" class="anchor" href="#informationssammlung-zur-techniken-programme-vor-analyse-und-%C3%84nderungen-zu-sch%C3%BCtzen"><span class="octicon octicon-link"></span></a>Informationssammlung zur Techniken, Programme vor Analyse und Änderungen zu schützen</h1>
+<a name="informationssammlung-zur-techniken-programme-vor-analyse-und-%C3%84nderungen-zu-sch%C3%BCtzen" class="anchor" href="#informationssammlung-zur-techniken-programme-vor-analyse-und-%C3%84nderungen-zu-sch%C3%BCtzen"></a>Informationssammlung zur Techniken, Programme vor Analyse und Änderungen zu schützen</h1>
 
 <h2>
-<a name="ausgangssituation" class="anchor" href="#ausgangssituation"><span class="octicon octicon-link"></span></a>Ausgangssituation</h2>
+<a name="ausgangssituation" class="anchor" href="#ausgangssituation"></a>Ausgangssituation</h2>
 
 <p>Möchte man Daten oder einen Service (Shop, Auskunft etc.) im Internet bereitstellen, muss man bisher entweder einen Hoster (beispielsweise Dropbox) damit beauftragen oder selbst einen Server bereitstellen, den man unter Kontrolle hat.</p>
 
 <p>Im ersten Fall muss man dem Hoster vertrauen, dass er die ihm anvertrauten Daten und Programme für den Service schützt. Man kann zwar die die Daten verschlüsselt beim Hoster ablegen, kann dann aber beispielsweise die Daten nicht beim Hoster durchsuchen, sondern muss alles, was infrage kommt erst herunterladen und entschlüsseln. Auch die Muster, nach denen auf die Daten zugegriffen wird, lassen oft zu viele Rückschlüsse zu. Beim Hosting sind oft mehrere Unternehmen beteiligt, die wiederum von verschiedenen Seiten unter Druck gesetzt werden können, um Daten (auch Log-Dateien) und Programme herauszugeben.</p>
 
-<p>Im zweiten Fall muss man einen Computer laufen lassen, über DSL oder Ähnliches ans Internet angeschlossen ist. Der verbraucht Platz, Strom, macht Krach, konkurriert um die Bandbreite der Internetverbindung, die Internetverbindung ist relativ unzuverlässig, man hat oft keine feste IP-Adresse, wenn die Anforderungen steigen muss der Rechner durch einen leistungsfähigeren ersetzt werden und man muss sich um Hardware, Betriebssystem u.a. selbst kümmern - deutlich umständlicher als beispielsweise Dropbox.</p>
+<p>Im zweiten Fall muss man einen Computer laufen lassen, über DSL oder Ähnliches ans Internet angeschlossen ist. Der verbraucht Platz, Strom, macht Krach, konkurriert um die Bandbreite der Internetverbindung, die Internetverbindung ist relativ unzuverlässig, man hat oft keine feste IP-Adresse, wenn die Anforderungen steigen muss der Rechner durch einen leistungsfähigeren ersetzt werden und man muss sich um Hardware, Betriebssystem und deren Sicherheit selbst kümmern - deutlich umständlicher als beispielsweise Dropbox. Viele Menschen sind mit einem eigenen Server überfordert.</p>
+
+<p>Viele Informationen über mich gelangen indirekt, über Leute, die meine Daten haben, zu Betrügern, Geheimdiensten usw.</p>
 
 <h2>
-<a name="die-alternative-obfuscation" class="anchor" href="#die-alternative-obfuscation"><span class="octicon octicon-link"></span></a>Die Alternative: Obfuscation</h2>
+<a name="geht-das-nicht-besser" class="anchor" href="#geht-das-nicht-besser"></a>Geht das nicht besser?</h2>
 
-<h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<p>Kann man Programme inklusive Schlüsseln und anderen geheimen Daten bei einem Serverhoster bereitstellen könnte, ohne ihm Zugriff auf diese geheimen Daten zu geben? Ist es möglich, dass der Hoster diese Programme zwar im Originalzustand ausführen kann, bei der kleinsten Veränderung aber nur noch Datensalat als Rückgabe erhält? Können Daten, mit denen das Programm arbeitet, genauso gut geschützt wären wie ein sorgfältig verschlüsseltes Dokument? Kann man erreichen, dass die (verschlüsselten) Programmausgaben das einzige sind, das Rückschlüsse auf die Funktionsweise der Programme liefern kann?</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h2>
+<a name="die-alternative-secure-code-jumbling" class="anchor" href="#die-alternative-secure-code-jumbling"></a>Die Alternative: Secure Code Jumbling</h2>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>Mit Fragen wie diesen beschäftigen sich Forscher schon seit den 70er Jahren. Im Juli 2013 konnten nun sechs Kryptologen einen Durchbruch vermelden und diese Fragen mit &quot;Ja&quot; beantworten: In ihrem <a href="http://eprint.iacr.org/2013/451.pdf">Paper beschreiben Garg, Gentry, Halevi, Raykova, Sahai und Waters</a> einen Obfuscator, der aus einem Programm eine Variante erzeugt, die zwar die gleichen Ausgaben wie das Ursprungsprogramm liefert, aber inhaltlich kryptographisch geschützt ist vor Analyse und Veränderung. Die sechs Kryptologen bezeichnen ihr Verfahren als &quot;Indistinguishability Obfuscation&quot;, im Folgenden bezeichnen wir es aber als &quot;Code Jumbling&quot; oder &quot;Secure Code Jumbling&quot; weil sich das leichter aussprechen lässt.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2><a name="noch-nicht-alltagstauglich" class="anchor" href="#noch-nicht-alltagstauglich"></a>noch nicht alltagstauglich</h2>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+Der Obfuscator ist für kurz laufende Programme konstruiert, die Programme müssen umgeformt werden, damit sie auf die im Paper beschriebene Art verarbeitet werden können und meines Wissens nach hat bis jetzt niemand die Ideen für den Obfuscator in ein ausführbares Programm umgesetzt. Vermutlich würde der Speicherbedarf des erzeugten Programms bei einem Vielfachen des Originals liegen, die Laufzeit sogar um einige Größenordnungen höher. Dennoch sprechen die Vorteile für sich: sehr hohe Sicherheit aus bewährten und gut untersuchten Bausteinen aus der Kryptographie ohne alle Nachteile, die ein selbst betriebener Server mit sich bringt (siehe oben).
+<h2><a name="ist-die-nutzung-bald-verboten" class="anchor" href="#ist-die-nutzung-bald-verboten"></a>Ist die Nutzung bald verboten?</h2>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Im genannten Paper bezeichnen sich drei der Kryptologen als &quot;IBM Research&quot; zugehörig. IBM wird manchmal als &quot;Patentweltmeister&quot; bezeichnet, 2012 bekamen sie 6.478 Patente zugeteilt. IBM beeilt sich also, möglichst viele Patente anzumelden und kann so verbieten, dass in den nächsten 20 Jahren von IBM unabhängige Programmierer diese Verfahren in ihren eigenen Programmen und Geschäftsabläufen nutzen. Als US-Unternehmen ist IBM außerdem stark dem Druck der US-Regierung und ihrer Behörden ausgesetzt, die von IBM beispielsweise verlangen können, Hintertüren in das Verfahren einzubauen oder <a href="http://de.wikipedia.org/wiki/Data_Encryption_Standard#Die_Rolle_der_NSA">die Sicherheit des Verfahrens abzuschwächen</a>. Auch andere Personen können Patente anmelden und damit die Nutzung erschweren.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<h2><a name="wir-benoetigen-deine-ihre-mithilfe" class="anchor" href="#wir-benoetigen-deine-ihre-mithilfe"></a>Wir benötigen deine/Ihre Mithilfe!</h2>
+<p>Patente und andere Schutzrechte werden nur zugeteilt, wenn es die Software, das Verfahren, die Lösung für ein Problem, ein Anwendungsbeispiel beziehungsweise das Produkt vor der Patentanmeldung noch nicht öffentlich bekannt war. Wenn wir also jetzt unsere Ideen veröffentlichen, können diese in Zukunft umgesetzt werden, ohne dass Programmierer und Anwender Angst vor Patentklagen haben müssen. (Wir orientieren uns also an der Strategie der "Defensivpublikation" alias "Sperrveröffentlichung" alias "enabling publication".)</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Daraus ergeben sich folgende Aufgaben (Die Aufgaben sind weiter unten noch genauer erklärt):
+<ul>
+  <li>Ideen veröffentlichen, so dass sie möglichst direkt umsetzbar sind (kann natürlich später noch erweitert werden)</li>
+  <li>Dieses Repository kopieren ("klonen") und mit Datum und Uhrzeit abspeichern. So kann später bezeugt werden, dass das im Repository beschriebene Wissen zum Kopierzeitpunkt tatsächlich schon Stand der Technik war und zu diesem Zeitpunkt nicht mehr patentiert werden konnte.</li>
+  <li>die Papers lesen und für Laien verständlich darstellen, was mit den in den beschriebenen Techniken erreicht werden kann. In anderen Worten: Die Bausteine liefern, aus denen andere dann Anwendungsideen entwickeln und veröffentlichen</li>
+  <li>Patente recherchieren, den Stand der Technik dokumentieren: Welche Veröffentlichungen außerhalb dieses Repositories gibt es zu diesem Thema?</li>
+  <li>programmieren! Ein funktionsfähiges Programm beweist klar, dass die dafür eingesetzten Technologien Stand der Technik sind.</li>
+  <li>Werbung machen! Mathematiker auf das Thema aufmerksam machen und zur Mitarbeit ermuntern.</li>
+  <li>bei Wikipedia Artikel zum Thema schreiben, verbessern und in andere Sprachen übertragen.</li>
+  <li>Ideen, die eine gewisse Reife erreicht haben, bei <a href="http://www.defensivepublications.org/">Defensive publications</a> o.ä. einreichen</li>
+  <li></li>
+</ul>
+</p>
+  <h3>Ideen veröffentlichen, so dass sie möglichst direkt umsetzbar sind (kann natürlich später noch erweitert werden)</h3>
+  <h3>Dieses Repository kopieren ("klonen") und mit Datum und Uhrzeit abspeichern. So kann später bezeugt werden, dass das im Repository beschriebene Wissen zum Kopierzeitpunkt tatsächlich schon Stand der Technik war und zu diesem Zeitpunkt nicht mehr patentiert werden konnte.</h3>
+  <h3>die Papers lesen und für Laien verständlich darstellen, was mit den in den beschriebenen Techniken erreicht werden kann. In anderen Worten: Die Bausteine liefern, aus denen andere dann Anwendungsideen entwickeln und veröffentlichen</h3>
+  <h3>Patente recherchieren, den Stand der Technik dokumentieren: Welche Veröffentlichungen außerhalb dieses Repositories gibt es zu diesem Thema?</h3>
+  <h3>programmieren! Ein funktionsfähiges Programm beweist klar, dass die dafür eingesetzten Technologien Stand der Technik sind.</h3>
+  <h3>Werbung machen! Mathematiker auf das Thema aufmerksam machen und zur Mitarbeit ermuntern.</h3>
+  <h3>bei Wikipedia Artikel zum Thema schreiben, verbessern und in andere Sprachen übertragen.</h3>
+  <h3>Ideen, die eine gewisse Reife erreicht haben, bei <a href="http://www.defensivepublications.org/">Defensive publications</a> o.ä. einreichen</h3>
+  <h3></h3>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/nofreddy">nofreddy</a></p>
